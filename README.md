@@ -28,7 +28,7 @@ Here `myfirebaseapp.appspot.com` is yout Firebase app URL and `mydata` must matc
 
 Write something in the textfield, then click Write. The user will be prompted to choose a Google account configured on the phone. This popup will appear again if the user clears the app data/uninstall and reinstalls the app. Subsequent reads/writes will require no user interaction.
 
-![Popup](screen.png)
+<img src="screen.png" width="300" >
 
 A file will be created in Cloud Storage at:
 ```
