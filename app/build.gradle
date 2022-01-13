@@ -1,0 +1,50 @@
+plugins {
+	id("com.android.application")
+	id "kotlin-android"
+	id("com.google.gms.google-services")
+}
+
+android {
+	compileSdkVersion 31
+
+	defaultConfig {
+		applicationId "me.app.myapplication"
+		minSdkVersion 21
+		targetSdkVersion 31
+		versionCode 1
+		versionName "1.0"
+	}
+	signingConfigs {
+		production {
+			storeFile file("../keystore.ks")
+			storePassword "myapp"
+			keyAlias "myapp"
+			keyPassword "myapp"
+		}
+	}
+	buildTypes {
+		debug {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.production
+		}
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.production
+		}
+	}
+	buildFeatures {
+		viewBinding true
+	}
+}
+
+dependencies {
+	implementation 'androidx.appcompat:appcompat:1.4.0'
+
+	implementation platform('com.google.firebase:firebase-bom:29.0.3')
+	implementation 'com.google.firebase:firebase-auth-ktx'
+	implementation 'com.google.firebase:firebase-storage-ktx'
+	implementation 'com.google.android.gms:play-services-auth:20.0.0'
+
+}
